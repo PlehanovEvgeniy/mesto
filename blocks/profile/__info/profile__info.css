@@ -10,3 +10,11 @@
     row-gap: 14px;
     align-items: flex-end;
 }
+
+@media screen and (min-width: 827px) {
+    .profile__info {
+        row-gap: 16px;
+        column-gap: 18px;
+        margin: auto auto auto 30px;      
+    }
+}

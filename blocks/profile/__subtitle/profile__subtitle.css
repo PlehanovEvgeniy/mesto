@@ -12,3 +12,12 @@
     overflow: hidden;
 }
 
+@media screen and (min-width: 827px) {
+    .profile__subtitle {
+        font-size: 18px;
+        line-height: 22px;
+        max-width: 400px;
+        text-align: start;
+    }
+}
+

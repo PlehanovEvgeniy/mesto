@@ -9,3 +9,10 @@
     column-gap: 17px;
     list-style: none;
 }
+
+@media screen and (min-width: 1280px) {
+    .elements__container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, max-content);
+    }
+}

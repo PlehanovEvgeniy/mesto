@@ -6,3 +6,9 @@
     margin: 42px auto 0 auto;
     padding: 0;
 }
+
+@media screen and (min-width: 827px) {
+    .main {
+        width: calc(100% * 880 / 1280);
+    }
+}

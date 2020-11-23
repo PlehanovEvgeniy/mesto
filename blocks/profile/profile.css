@@ -7,3 +7,11 @@
     margin: 0;
     padding: 0;   
 }
+
+
+@media screen and (min-width: 827px) {
+    .profile{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
