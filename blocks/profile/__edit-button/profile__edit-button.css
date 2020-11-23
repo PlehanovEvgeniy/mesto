@@ -10,4 +10,11 @@
     height: 18px;
     grid-area: button;
     background: none;
+    opacity: 1;
+    transition: opacity .3s ease-out;
+}
+
+.profile__edit-button:hover {
+    cursor: pointer;
+    opacity: 0.5;
 }

@@ -3,4 +3,12 @@
     height: 24.4px;
     margin: 0 auto 31.6px 27px;
     padding: 0;
+
+    opacity: 1;
+    border: none;
+    transition: opacity .3s ease-out;
+}
+
+.logo:hover {
+    opacity: 0.5;
 }
