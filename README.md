@@ -18,4 +18,4 @@
 -@media
 -addEventListener
 
-Ссылка на [Проект](https://alextcoi.github.io/mesto/)
+Ссылка на [Проект](https://plehanovevgeniy.github.io/mesto/)
