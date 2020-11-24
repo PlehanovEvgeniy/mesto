@@ -1,17 +1,21 @@
 # Проект 4: Место
 
-### Обзор
+### 4 проектная работа в Яндекс.Практикуме
+#### Задачи:
 
-* Figma
-* Картинки
+- Сделать макет согласно проекту * [Ссылка на макет в Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4)
+- Закрепить полученные начальные навыки JS 
+- Изменение текста в профиле, с помощью модального окна
 
-**Figma**
+#### Что было использовано:
 
-* [Ссылка на макет в Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4)
+grid
+Flex
+textContent
+classList.add, ClassList.remove
+querySelector
+querySelectorAll
+@media
+addEventListener
 
-**Картинки**
-
-Доставать картинки предстоит из Фигмы. Это расхожая практика, поэтому полезно потренироваться.
-Не забудьте [оптимизировать картинки](https://tinypng.com/), чтобы ваш сайт загружался быстрее.
-
-Удачи!
+Ссылка на [Проект](https://alextcoi.github.io/mesto/)
