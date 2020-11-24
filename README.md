@@ -9,13 +9,13 @@
 
 #### Что было использовано:
 
--grid
--Flex
--textContent
--classList.add, ClassList.remove
--querySelector
--querySelectorAll
--@media
--addEventListener
+- grid
+- Flex
+- textContent
+- classList.add, ClassList.remove
+- querySelector
+- querySelectorAll
+- @media
+- addEventListener
 
 Ссылка на [Проект](https://plehanovevgeniy.github.io/mesto/)
