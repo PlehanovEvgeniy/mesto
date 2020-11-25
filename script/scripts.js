@@ -23,10 +23,7 @@ function popupSubmitHandler(evt) {
     evt.preventDefault();
 
     name.textContent = popupName.value;
-    prof.textContent = popupProf.value;
-    name.textContent = nameValue;
-    prof.textContent = profValue;
- 
+    prof.textContent = popupProf.value;    
     closePopup();
 } 
  
