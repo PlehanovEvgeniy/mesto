@@ -11,6 +11,8 @@
     border-radius: 2px;
     margin: 48px auto 37px auto;
     transition: background-color .5s ease-out;
+    cursor: pointer;
+    border: none;
     }
     
 .popup__save-button:hover {

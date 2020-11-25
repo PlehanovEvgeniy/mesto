@@ -1,9 +1,9 @@
-.popup__close-button-picture {
+.popup__close-button-image {
     height: 40px;
 }
 
 @media screen and (max-width: 826px) {
-    .popup__close-button-picture {
+    .popup__close-button-image {
         height: 26px;
     }
 }

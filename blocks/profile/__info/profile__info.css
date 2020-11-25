@@ -1,6 +1,6 @@
 .profile__info {
     display: grid;
-    margin: 22.25px auto auto 30px;
+    margin: 22.25px auto 0 auto;
     grid-template-columns: repeat(2, fit-content);
     grid-template-rows: repeat(2, max-content);
     grid-template-areas:
