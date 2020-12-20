@@ -47,18 +47,40 @@
                 </button>
             </div>
         </li>
-    </template>    
-    <section class="popup">
-        <form name="popup-form" class="popup__container">
-            <h2 class="popup__title">Редактировать профиль</h2>
-            <input name="popup-name" id="popup-name" class="popup__item" type="text" placeholder="Имя">
-            <input name="popup-prof" id="popup-prof" class="popup__item" type="text" placeholder="О себе">
-            <button type="submit" class="popup__save-button">Сохранить</button>
-            <button type="button" class="popup__close-button">
-                <img class="popup__close-button-image" src="./Images/Close-Icon.svg" alt="Закрыть">
-            </button>
+    </template>
+    <section class="popup popup_type_edit">
+      <div class="popup__container">
+        <form class="form form_type_edit" name="edit-form">
+          <h2 class="form__title">Редактировать профиль</h2>
+          <fieldset class="form__content form__user-info">
+            <input class="form__item form__item_type_name" type="text" name="user-name" required />
+            <input class="form__item form__item_type_job" type="text" name="user-job" required />
+          </fieldset>
+          <button class="button button_type_save" type="submit">Сохранить</button>
         </form>
+        <button class="button button_type_close" type="button" aria-label="Закрыть"></button>
+      </div>
     </section>
+    <section class="popup popup_type_add">
+      <div class="popup__container popup__container_type_add">
+        <form class="form form_type_add" name="add-form">
+          <h2 class="form__title">Новое место</h2>
+          <fieldset class="form__content form__add-card">
+            <input class="form__item form__item_type_card-name" type="text" name="card-name" placeholder="Название" required />
+            <input class="form__item form__item_type_card-link" type="url" name="card-link" placeholder="Ссылка на картинку" required />
+          </fieldset>
+          <button class="button button_type_save" type="submit">Создать</button>
+        </form>
+        <button class="button button_type_close" type="button" aria-label="Закрыть"></button>
+      </div>
+    </section>
+    <div class="popup popup_type_image">
+      <div class="popup__image-container">
+        <img class="popup__image" src="./images/elbrus.jpg" alt="#" />
+        <h3 class="popup__image-title">Для проверки</h3>
+        <button class="button button_type_close" type="button" aria-label="Закрыть"></button>
+      </div>
+    </div>
     <script src="./script/scripts.js"></script>
 </body>
 </html>
