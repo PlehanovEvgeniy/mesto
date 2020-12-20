@@ -27,67 +27,27 @@
             </button>
         </section>
         <section class="elements">
-            <ul class="elements__container">
-                <li class="element">
-                    <img class="element__image" src="./Images/karachaevsk.jpg" alt="Карачаево-Черкесск">
-                    <div class="element__description">
-                        <h2 class="element__text">Карачаево-Черкесск</h2>
-                        <button type="button" class="element__button">
-                            <img class="element__like" src="./Images/like.svg" alt="Лайк">
-                        </button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img class="element__image" src="./Images/elbrus.jpg" alt="Эльбрус">
-                    <div class="element__description">
-                        <h2 class="element__text">Гора Эльбрус</h2>
-                        <button type="button" class="element__button">
-                            <img class="element__like" src="./Images/like.svg" alt="Лайк">
-                        </button>
-                    </div>
-                </li>            
-                <li class="element">
-                    <img class="element__image" src="./Images/Dombai.jpg" alt="Домбай">
-                    <div class="element__description">
-                        <h2 class="element__text">Домбай</h2>
-                        <button type="button" class="element__button">
-                            <img class="element__like" src="./Images/like.svg" alt="Лайк">
-                        </button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img class="element__image" src="./Images/Ama-dablam.jpg" alt="Ама-Даблам">
-                    <div class="element__description">
-                        <h2 class="element__text">Ама-Даблам</h2>
-                        <button type="button" class="element__button">
-                            <img class="element__like" src="./Images/like.svg" alt="Лайк">
-                        </button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img class="element__image" src="./Images/Kilimanjaro.jpg" alt="Килиманджаро">
-                    <div class="element__description">
-                        <h2 class="element__text">Килиманджаро</h2>
-                        <button type="button" class="element__button">
-                            <img class="element__like" src="./Images/like.svg" alt="Лайк">
-                        </button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img class="element__image" src="./Images/Sochi.jpg" alt="Горы Сочи">
-                    <div class="element__description">
-                        <h2 class="element__text">Горы Сочи</h2>
-                        <button type="button" class="element__button">
-                            <img class="element__like" src="./Images/like.svg" alt="Лайк">
-                        </button>
-                    </div>
-                </li>
+            <ul class="elements__container">                
             </ul>
         </section>        
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
+    <template id="card_template">
+        <li class="element">
+            <button type="button" class="element__delete">
+                <img class="element__delete-image" src="./Images/delete.svg" alt="Кнопка удалить">
+            </button>
+            <img class="element__image" src="./Images/karachaevsk.jpg" alt="Карачаево-Черкесск">
+            <div class="element__description">
+                <h2 class="element__text">Карачаево-Черкесск</h2>
+                <button type="button" class="element__button">
+                    <img class="element__like" src="./Images/like.svg" alt="Лайк">
+                </button>
+            </div>
+        </li>
+    </template>    
     <section class="popup">
         <form name="popup-form" class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
