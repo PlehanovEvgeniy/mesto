@@ -43,3 +43,4 @@
 @import url(../blocks/button/_type/button_type_close.css);
 @import url(../blocks/button/button.css);
 @import url(../blocks/button/_type/button_type_save.css);
+@import url(../blocks/button/_clicked/button_clicked.css);
