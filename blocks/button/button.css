@@ -9,7 +9,7 @@
     border: 1px solid transparent;
 }
   
-  .button:hover {
-    opacity: .6;
-    cursor: pointer;
+.button:hover {
+  opacity: .6;
+  cursor: pointer;
 }
