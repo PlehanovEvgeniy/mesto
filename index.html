@@ -53,8 +53,10 @@
         <form class="form form_type_edit" name="edit-form">
           <h2 class="form__title">Редактировать профиль</h2>
           <fieldset class="form__content form__user-info">
-            <input class="form__item form__item_type_name" type="text" name="user-name" placeholder="Имя" required />
-            <input class="form__item form__item_type_job" type="text" name="user-job" placeholder="Вид деятельности" required />
+            <input class="form__item form__item_type_name" type="text" name="user-name" placeholder="Имя" minlength="2" maxlength="40" id="user-name" required novalidate/>
+            <span id="user-name-error" class="form__item-error"></span>
+            <input class="form__item form__item_type_job" type="text" name="user-job" placeholder="Вид деятельности" minlength="2" maxlength="200" id="user-job" required novalidate/>
+            <span id="user-job-error" class="form__item-error"></span>
           </fieldset>
           <button class="button button_type_save" type="submit">Сохранить</button>
         </form>
@@ -66,8 +68,10 @@
         <form class="form form_type_add" name="add-form">
           <h2 class="form__title">Новое место</h2>
           <fieldset class="form__content form__add-card">
-            <input class="form__item form__item_type_card-name" type="text" name="card-name" placeholder="Название" required />
-            <input class="form__item form__item_type_card-link" type="url" name="card-link" placeholder="Ссылка на картинку" required />
+            <input class="form__item form__item_type_card-name" type="text" name="card-name" placeholder="Название" minlength="2" maxlength="30" id="card-name" required novalidate  />
+            <span id="card-name-error" class="form__item-error"></span>
+            <input class="form__item form__item_type_card-link" type="url" name="card-link" placeholder="Ссылка на картинку" id="card-link" required novalidate />
+            <span id="card-link-error" class="form__item-error"></span>
           </fieldset>
           <button class="button button_type_save" type="submit">Создать</button>
         </form>
@@ -81,6 +85,8 @@
         <button class="button button_type_close" type="button" aria-label="Закрыть"></button>
       </div>
     </div>
+    <script src="./script/initial-сards.js"></script>    
+    <script src="./script/validate.js"></script>
     <script src="./script/scripts.js"></script>
 </body>
 </html>

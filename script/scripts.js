@@ -22,33 +22,6 @@ const cardList = document.querySelector('.elements__container');
 const formElement = document.querySelector('.form_type_edit');
 const newCardElement = document.querySelector('.form_type_add');
 
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
-
 function createFirstCards() {
     const showCards = initialCards.map(createCard);
     cardList.append(...showCards);
@@ -74,11 +47,28 @@ function createCard (item) {
 
 function openPopUp(popup) {
     popup.classList.add('popup_opened');
+    document.addEventListener('click', clickOutside);
+    document.addEventListener('keydown', escapePopup);
 }
 
 function closePopUp(popup) {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('click', clickOutside);
+    document.removeEventListener('keydown', escapePopup);
 }
+
+function clickOutside(evt) {
+    if (evt.target.classList.contains('popup_opened')) {
+        closePopUp(evt.target);
+    }
+}
+
+function escapePopup(evt) {
+    const popUpActive = document.querySelector('.popup_opened');
+    if (evt.key === "Escape") {
+        closePopUp(popUpActive);
+    }
+  }
 
 function showPreviewPicture(evt) {
     const clickForOpen = evt.target.closest('.element');
@@ -112,6 +102,8 @@ function showProfileFormSubmit(evt) {
     closePopUp(popupEditProfile);
 }
 
+
+
 editButton.addEventListener('click', openEditProfilePopup);
 addButton.addEventListener('click', () => openPopUp(popupAddCard));
 
@@ -122,6 +114,7 @@ closeButtons.forEach(function(item){
         popUpToClose.classList.remove('popup_opened');
     });
 });
+
 
 formElement.addEventListener('submit', showProfileFormSubmit);
 newCardElement.addEventListener('submit', showCardFormSubmit);
