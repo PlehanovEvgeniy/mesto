@@ -31,9 +31,9 @@ function createCard (item) {
     const newCard = cardTemplate.content.cloneNode(true);
     const cardName = newCard.querySelector('.element__text');
     cardName.textContent = item.name;
-    const cardLink = newCard.querySelector('.element__image');
-    cardLink.src = item.link;
-    cardLink.alt = item.name;
+    const cardImage = newCard.querySelector('.element__image');
+    cardImage.src = item.link;
+    cardImage.alt = item.name;
 
     newCard.querySelector('.element__like').addEventListener('click', (evt) => {evt.target.classList.toggle('button_clicked');});
 
@@ -41,7 +41,9 @@ function createCard (item) {
         evt.target.closest('.element').remove();
       });
 
-    cardLink.addEventListener('click', showPreviewPicture);
+      cardImage.addEventListener('click', () => {
+        showPreviewPicture(item)
+    }); 
     return newCard
 }
 
@@ -64,19 +66,16 @@ function clickOutside(evt) {
 }
 
 function escapePopup(evt) {
-    const popUpActive = document.querySelector('.popup_opened');
     if (evt.key === "Escape") {
+    const popUpActive = document.querySelector('.popup_opened');    
         closePopUp(popUpActive);
     }
   }
 
-function showPreviewPicture(evt) {
-    const clickForOpen = evt.target.closest('.element');
-    const openImageName = clickForOpen.querySelector('.element__text').textContent;
-    const openImageLink = clickForOpen.querySelector('.element__image').src;
-    imageTitle.textContent = openImageName;
-    imageLink.src = openImageLink;
-    imageLink.alt = openImageName;
+function showPreviewPicture(item) {
+    imageTitle.textContent = item.name;
+    imageLink.src = item.link;
+    imageLink.alt = item.name;
     openPopUp(popupImage);
 }
 
@@ -105,7 +104,10 @@ function showProfileFormSubmit(evt) {
 
 
 editButton.addEventListener('click', openEditProfilePopup);
-addButton.addEventListener('click', () => openPopUp(popupAddCard));
+addButton.addEventListener('click', () => {
+    newCardElement.reset()
+    openPopUp(popupAddCard)
+});
 
 
 closeButtons.forEach(function(item){
