@@ -34,7 +34,7 @@
     <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-    <template id="card_template">
+    <template id="card_template" class='default-card'>
         <li class="element">
             <button type="button" class="element__delete">
                 <img class="element__delete-image" src="./Images/delete.svg" alt="Кнопка удалить">
@@ -84,9 +84,8 @@
         <h3 class="popup__image-title">Для проверки</h3>
         <button class="button button_type_close" type="button" aria-label="Закрыть"></button>
       </div>
-    </div>
-    <script src="./script/validate.js"></script>
+    </div>   
     <script src="./script/initial-сards.js"></script>    
-    <script src="./script/scripts.js"></script> 
+    <script type="module" src="./script/scripts.js"></script>
 </body>
 </html>

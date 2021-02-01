@@ -1,3 +1,4 @@
+import {Card} from './card.js';
 const editButton = document.querySelector('.profile__edit-button');
 const closeButtons = document.querySelectorAll('.button_type_close');
 const addButton = document.querySelector('.profile__add-button');
@@ -16,35 +17,17 @@ const cardLinkInput = document.querySelector('.form__item_type_card-link');
 const imageTitle = document.querySelector('.popup__image-title');
 const imageLink = document.querySelector('.popup__image');
 
-const cardTemplate = document.querySelector('#card_template');
 const cardList = document.querySelector('.elements__container');
 
 const formElement = document.querySelector('.form_type_edit');
 const newCardElement = document.querySelector('.form_type_add');
 
 function createFirstCards() {
-    const showCards = initialCards.map(createCard);
+    const showCards = initialCards.map(item => {
+        const card = new Card (item, '.default-card');
+        return card.generateCard();
+    });
     cardList.append(...showCards);
-}
-
-function createCard (item) {
-    const newCard = cardTemplate.content.cloneNode(true);
-    const cardName = newCard.querySelector('.element__text');
-    cardName.textContent = item.name;
-    const cardImage = newCard.querySelector('.element__image');
-    cardImage.src = item.link;
-    cardImage.alt = item.name;
-
-    newCard.querySelector('.element__like').addEventListener('click', (evt) => {evt.target.classList.toggle('button_clicked');});
-
-    newCard.querySelector(".element__delete").addEventListener('click', (evt) => {
-        evt.target.closest('.element').remove();
-      });
-
-      cardImage.addEventListener('click', () => {
-        showPreviewPicture(item)
-    }); 
-    return newCard
 }
 
 function openPopUp(popup) {
@@ -70,12 +53,12 @@ function escapePopup(evt) {
     const popUpActive = document.querySelector('.popup_opened');    
         closePopUp(popUpActive);
     }
-  }
+}
 
-function showPreviewPicture(item) {
-    imageTitle.textContent = item.name;
-    imageLink.src = item.link;
-    imageLink.alt = item.name;
+export function showPreviewPicture(name, link) {
+    imageTitle.textContent = name;
+    imageLink.src = link;
+    imageLink.alt = name;
     openPopUp(popupImage);
 }
 
@@ -101,8 +84,6 @@ function showProfileFormSubmit(evt) {
     closePopUp(popupEditProfile);
 }
 
-
-
 editButton.addEventListener('click', openEditProfilePopup);
 addButton.addEventListener('click', () => {
     newCardElement.reset()
@@ -116,7 +97,6 @@ closeButtons.forEach(function(item){
         popUpToClose.classList.remove('popup_opened');
     });
 });
-
 
 formElement.addEventListener('submit', showProfileFormSubmit);
 newCardElement.addEventListener('submit', showCardFormSubmit);
