@@ -1,9 +1,9 @@
-import {showPreviewPicture} from './scripts.js'
 export class Card {
-    constructor (data, cardSelector) {
+    constructor (data, cardSelector, funcShowPreviewPicture) {
         this._name = data.name;
         this._link = data.link;
         this._cardSelector = cardSelector;
+        this._funcShowPreviewPicture = funcShowPreviewPicture;
         this._element = this._getTemplate();
 
         this._toggleLike = this._toggleLike.bind(this);
@@ -47,7 +47,7 @@ export class Card {
         this._removeButton.addEventListener('click', this._removeElement);
         
         this._elementImage.addEventListener('click', () => {
-            showPreviewPicture(this._name, this._link);
+            this._funcShowPreviewPicture(this._name, this._link);
         });
     }
 

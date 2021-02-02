@@ -1,4 +1,4 @@
-import {Card} from './card.js';
+import {Card} from './Card.js';
 import {initialCards} from './initial-сards.js';
 import {FormValidator, validationConfig} from './FormValidator.js';
 
@@ -31,12 +31,13 @@ profileValidator.enableValidation();
 const addCardValidator = new FormValidator(validationConfig, newCardElement);
 addCardValidator.enableValidation();
 
+function createCard(name, link,) {
+    const card = new Card ({name, link}, '.default-card', showPreviewPicture);    
+    return card.getElement();
+}
 
 function createFirstCards() {
-    const showCards = initialCards.map(item => {
-        const card = new Card (item, '.default-card');
-        return card.getElement();
-    });
+    const showCards = initialCards.map(item =>createCard(item.name, item.link));
     cardList.append(...showCards);
 }
 
@@ -65,7 +66,7 @@ function escapePopup(evt) {
     }
 }
 
-export function showPreviewPicture(name, link) {
+function showPreviewPicture(name, link) {
     imageTitle.textContent = name;
     imageLink.src = link;
     imageLink.alt = name;
@@ -83,8 +84,7 @@ function showCardFormSubmit(evt) {
     evt.preventDefault();
     const newCardName = cardNameInput.value;
     const newCardLink = cardLinkInput.value;
-    const newCard = new Card ({name: newCardName, link: newCardLink}, '.default-card');
-    cardList.prepend(newCard.getElement());
+    cardList.prepend(createCard(newCardName, newCardLink));
     closePopUp(popupAddCard);
 }
 
@@ -104,9 +104,9 @@ addButton.addEventListener('click', () => {
 
 
 closeButtons.forEach(function(item){
-    item.addEventListener('click', function closePopUp(evt) {
+    item.addEventListener('click', function (evt) {
         const popUpToClose = evt.target.closest('.popup');
-        popUpToClose.classList.remove('popup_opened');
+        closePopUp(popUpToClose)
     });
 });
 
