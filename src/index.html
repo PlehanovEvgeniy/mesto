@@ -3,27 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mesto</title>
-    <link rel="stylesheet" href="../pages/index.css">
+    <title>mesto</title>    
 </head>
 <body class="page">
     <header class="header">
         <a class="logo" href="#" target="_blank">
-            <img class="logo__picture" src="../Images/logo_mesto.svg" alt="Логотип Место">
+            <img class="logo__picture" src="<%=require('../Images/logo_mesto.svg')%>" alt="Логотип Место">
         </a>
     </header>
     <main class="main">
         <section class="profile">
-            <img class="profile__avatar" src="../Images/profile.jpg" alt="Жак-Ив Кусто">
+            <img class="profile__avatar" src="<%=require('../Images/profile.jpg')%>" alt="Жак-Ив Кусто">
             <div class="profile__info">
                 <h1 id="name" class="profile__title">Жак-Ив Кусто</h1>
                 <button type="button" class="profile__edit-button">
-                    <img class="profile__edit-button-image" src="../Images/Edit_button.svg" alt="Кнопка редактировать" >
+                    <img class="profile__edit-button-image" src="<%=require('../Images/Edit_button.svg')%>" alt="Кнопка редактировать" >
                 </button>            
                 <p id="prof" class="profile__subtitle">Исследователь океана</p>
             </div>
             <button type="button" class="profile__add-button">
-                    <img class="profile__add-button-image" src="../Images/Add_Button-vector.svg" alt="Кнопка добавить" >
+                    <img class="profile__add-button-image" src="<%=require('../Images/Add_Button-vector.svg')%>" alt="Кнопка добавить" >
             </button>
         </section>
         <section class="elements">
@@ -37,13 +36,13 @@
     <template id="card_template" class='default-card'>
         <li class="element">
             <button type="button" class="element__delete">
-                <img class="element__delete-image" src="../Images/delete.svg" alt="Кнопка удалить">
+                <img class="element__delete-image" src="<%=require('../Images/delete.svg')%>" alt="Кнопка удалить">
             </button>
-            <img class="element__image" src="../Images/karachaevsk.jpg" alt="Карачаево-Черкесск">
+            <img class="element__image" src="<%=require('../Images/karachaevsk.jpg')%>" alt="Карачаево-Черкесск">
             <div class="element__description">
                 <h2 class="element__text">Карачаево-Черкесск</h2>
                 <button type="button" class="element__button">
-                    <img class="element__like" src="../Images/like.svg" alt="Лайк">
+                    <img class="element__like" src="<%=require('../Images/like.svg')%>" alt="Лайк">
                 </button>
             </div>
         </li>
@@ -84,7 +83,6 @@
         <h3 class="popup__image-title">Для проверки</h3>
         <button class="button button_type_close" type="button" aria-label="Закрыть"></button>
       </div>
-    </div>   
-    <script type="module" src="../pages/Index.js"></script>
+    </div>
 </body>
 </html>
