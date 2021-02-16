@@ -1,4 +1,4 @@
-import './index.css';
+import "./index.css";
 import {Card} from '../components/Card.js';
 import {initialCards} from '../components/initial-сards.js';
 import {FormValidator, validationConfig} from '../components/FormValidator.js';
@@ -23,22 +23,27 @@ addCardValidator.enableValidation();
 const popupImage = new PopupWithImage('.popup_type_image', '.popup__image-title', '.popup__image');
 popupImage.setEventListeners();
 
+const createCard = (name, link) => {
+    const card = new Card ({name, link}, '.default-card', () => popupImage.open(name, link));
+    return card.getElement();
+}
+
 const initialCardList = new Section({items: initialCards, renderer: (item) => {
-    const card = new Card (item, '.default-card', () => popupImage.open(item.name, item.link));
-    initialCardList.addItem(card.getElement());
+    initialCardList.addItem(createCard(item.name, item.link));
 }}, '.elements__container');
 
 initialCardList.renderItems();
 
 const popupCardForm = new PopupWithForm('.popup_type_add', (item) => {
-    const card = new Card (item, '.default-card', () => popupImage.open(item.name, item.link));
-    initialCardList.preAddItem(card.getElement());
+    initialCardList.preAddItem(createCard(item.name, item.link));
     popupCardForm.close();
 });
 
+popupCardForm.setEventListeners();
+
 addButton.addEventListener('click', () => {
-    popupCardForm.open();
-    popupCardForm.setEventListeners();
+    addCardValidator.resetValidation()
+    popupCardForm.open();    
 })
 
 const userInfo = new UserInfo('.profile__title', '.profile__subtitle');
@@ -48,7 +53,9 @@ const popupEditForm = new PopupWithForm('.popup_type_edit', (item) => {
     popupEditForm.close();
 })
 
+popupEditForm.setEventListeners();
+
 editButton.addEventListener('click', () => {
+    profileValidator.resetValidation()    
     popupEditForm.open();
-    popupEditForm.setEventListeners();
 })
