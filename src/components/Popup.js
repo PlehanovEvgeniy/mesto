@@ -19,7 +19,7 @@ export class Popup {
     }
 
     setEventListeners() {        
-        document.addEventListener('click', this._clickOutside);
+        this._popup.addEventListener('click', this._clickOutside);
         this._selectorButtonClose.addEventListener('click', this._handleButtonClose);
     }
 
