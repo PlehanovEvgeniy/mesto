@@ -12,8 +12,14 @@
         </a>
     </header>
     <main class="main">
+
         <section class="profile">
-            <img class="profile__avatar" src="<%=require('./images/profile.jpg')%>" alt="Жак-Ив Кусто">
+          <button type="button" class="profile__avatar-button">
+            <div class="profile__avatar-edit-button-container">
+              <img class="profile__avatar-edit-button" src="<%=require('./images/Edit_button.svg')%>" alt="Кнопка Редактировать">
+            </div>
+            <img class="profile__avatar" src="<%=require('./images/profile.jpg')%>" alt="Фото пользователя">
+          </button>
             <div class="profile__info">
                 <h1 id="name" class="profile__title">Жак-Ив Кусто</h1>
                 <button type="button" class="profile__edit-button">
@@ -28,11 +34,14 @@
         <section class="elements">
             <ul class="elements__container">                
             </ul>
-        </section>        
+        </section> 
+
     </main>
+
     <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
+
     <template id="card_template" class='default-card'>
         <li class="element">
             <button type="button" class="element__delete">
@@ -41,12 +50,42 @@
             <img class="element__image" src="<%=require('./images/karachaevsk.jpg')%>" alt="Карачаево-Черкесск">
             <div class="element__description">
                 <h2 class="element__text">Карачаево-Черкесск</h2>
-                <button type="button" class="element__button">
+                <div class="element__like-conteiner">
+                  <button type="button" class="element__button">
                     <img class="element__like" src="<%=require('./images/like.svg')%>" alt="Лайк">
                 </button>
+                <span class="element__like-count"></span>
+                </div>                
             </div>
         </li>
     </template>
+
+    <section class="popup popup_delete-card">
+      <div class="popup__container">
+        <form name="card-deleted" class="form form_delete-card">
+          <h2 class="form__title">Вы уверены?</h2>
+          <div class="button_type_delete">
+            <button class="button button_type_save " type="submit">Да</button>
+          </div>          
+          <button class="button button_type_close" type="button" aria-label="Закрыть"></button>
+        </form>
+      </div>
+    </section>
+
+    <section class="popup popup_avatar-image">
+      <div class="popup__container">
+        <form name="profile-avatar-image" class='form form_avatar-image'>
+          <h2 class="form__title">Обновить аватар</h2>
+          <fieldset class="form__content form__avatar-info">
+            <input name="avatar" id="user-avatar" class="form__item form__item_type_card-name" placeholder="Ссылка на картинку" type="url" novalidate required>
+            <span id="user-avatar-error" class="form__item-error"></span>
+          </fieldset>
+          <button class="button button_type_save" type="submit">Сохранить</button>
+          <button class="button button_type_close" type="button" aria-label="Закрыть"></button>
+        </form>
+      </div>      
+    </section>
+
     <section class="popup popup_type_edit">
       <div class="popup__container">
         <form class="form form_type_edit" name="edit-form" >
@@ -62,6 +101,7 @@
         <button class="button button_type_close" type="button" aria-label="Закрыть"></button>
       </div>
     </section>
+
     <section class="popup popup_type_add">
       <div class="popup__container popup__container_type_add">
         <form class="form form_type_add" name="add-form" >
@@ -77,6 +117,7 @@
         <button class="button button_type_close" type="button" aria-label="Закрыть"></button>
       </div>
     </section>
+
     <div class="popup popup_type_image">
       <div class="popup__image-container">
         <img class="popup__image" src="#" alt="#" />

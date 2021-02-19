@@ -2,7 +2,7 @@
     margin: 48px 0 23px;
     padding: 0;
     border: 0;
-  }
+}
   
   @media (max-width: 768px) {
     .form__content {
