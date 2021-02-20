@@ -73,20 +73,8 @@ const createCard = (data) => {
             }
         },
         handleDeleteIconClick: (card) => {
-            //...что должно произойти при клике на удаление
-            const popupDeleteForm = new PopupWithSubmit('.popup_delete-card', () => {
-                popupDeleteForm.renderLoading(true);
-                api.deleteCard(card._id)
-                    .then(() => card.removeElement())
-                    .catch((err) => {console.log(err)})
-                    .finally(() => {
-                        popupDeleteForm.renderLoading(false);
-                        popupDeleteForm.close();
-                    });    
-            });
-
-            popupDeleteForm.setEventListeners();
-            popupDeleteForm.open();
+            //...что должно произойти при клике на удаление            
+            popupDeleteForm.open({card});
         }
     },'.default-card');
 
@@ -161,3 +149,16 @@ avatarButton.addEventListener('click', () => {
     popupAvatarForm.open();
 });
 
+const popupDeleteForm = new PopupWithSubmit('.popup_delete-card', (props) => {
+    const {card} = props;
+    popupDeleteForm.renderLoading(true);
+    api.deleteCard(card._id)
+        .then(() => card.removeElement())
+        .catch((err) => {console.log(err)})
+        .finally(() => {
+            popupDeleteForm.renderLoading(false);
+            popupDeleteForm.close();
+        });
+});
+
+popupDeleteForm.setEventListeners();
