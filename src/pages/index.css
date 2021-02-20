@@ -51,7 +51,6 @@
 @import url(../blocks/button/_type/button_type_save.css);
 @import url(../blocks/button/_clicked/button_clicked.css);
 @import url(../blocks/button/_disabled/button_disabled.css);
-
 @import url(../blocks/element/__like/element__like-count.css);
 @import url(../blocks/element/__like/element__like-conteiner.css);
-@import url(../blocks/button/__type/button__type-delete.css);
+@import url(../blocks/element/__delete/element__delete-conteiner.css);
